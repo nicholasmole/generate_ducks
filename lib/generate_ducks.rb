@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require_relative './make_a_file'
 
 class GenerateDucks
