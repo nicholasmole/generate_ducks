@@ -1,0 +1,23 @@
+import {all, put, takeLatest} from 'redux-saga/effects';
+import {types as {normal_param}Types} from '../ducks/{normal_param}';
+
+export function * watch{first_cap_param}() {
+	yield takeLatest({normal_param}Types.{full_cap_param}_GET, on{first_cap_param}Get);
+	yield takeLatest({normal_param}Types.{full_cap_param}_SUCCESS, on{first_cap_param}GetResponse);
+}
+
+export function * on{first_cap_param}Get({payload}) {
+	payload.method = 'get';
+	return yield payload;
+}
+
+export function * on{first_cap_param}GetResponse({response, payload}) {
+	if (payload.action === 'get' && response && payload.dataset === '{normal_param}') {
+		return yield all([
+			put({
+				type: {normal_param}.{full_cap_param}_GET,
+				payload: response
+			})
+		]);
+	}
+}

@@ -1,0 +1,35 @@
+import * as utils from '../utils/duckHelpers';
+import {createSelector} from 'reselect';
+import {fromJS} from 'immutable';
+
+export const types = {
+	...utils.requestTypes('{full_cap_param}'),
+	{full_cap_param}_GET: '{full_cap_param}_GET',
+	{full_cap_param}_SET: '{full_cap_param}_SET',
+	{full_cap_param}_SUCCESS: '{full_cap_param}_SUCCESS'
+};
+
+export const actions = {
+	{normal_param}Set: obj => utils.action(types.{full_cap_param}_SET, obj)
+};
+
+const initialState = fromJS([]);
+
+export default (state = initialState, action) => {
+	switch (action.type) {
+		case types.{full_cap_param}_SET:
+			return action.payload.data;
+
+		case types.{full_cap_param}_GET:
+			return state;
+
+		default:
+			return state;
+	}
+};
+
+export const get{first_cap_param} = state => state.get('app').get('{normal_param}');
+
+export const selectors = {
+	get{first_cap_param}: createSelector([get{first_cap_param}], {normal_param} => {normal_param})
+};
